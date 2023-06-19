@@ -8,7 +8,8 @@ package modelo;
  *
  * @author ESTUDIANTE
  */
-class ListaEnlazada<T> {
+public class ListaEnlazada<T> {
+
     private Nodo<T> cabeza;
 
     public ListaEnlazada() {
@@ -28,12 +29,12 @@ class ListaEnlazada<T> {
         }
     }
 
-    public T buscar(T nombre) {
+    public Contacto<T> buscar(T nombre) {
         Nodo<T> nodoActual = cabeza;
         while (nodoActual != null) {
             Contacto<T> contacto = (Contacto<T>) nodoActual.getDato();
             if (contacto.getNombre().equals(nombre)) {
-                return nodoActual.getDato();
+                return contacto;
             }
             nodoActual = nodoActual.getSiguiente();
         }
@@ -59,5 +60,9 @@ class ListaEnlazada<T> {
             }
             nodoActual = nodoActual.getSiguiente();
         }
+    }
+
+    public Nodo<T> getPrimero() {
+        return cabeza;
     }
 }

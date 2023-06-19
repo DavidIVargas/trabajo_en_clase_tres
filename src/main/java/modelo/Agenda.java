@@ -9,7 +9,8 @@ package modelo;
  * @author ESTUDIANTE
  */
 public class Agenda<T> {
-    private ListaEnlazada<T> contactos;
+
+    private ListaEnlazada<Contacto<T>> contactos;
 
     public Agenda() {
         contactos = new ListaEnlazada<>();
@@ -17,14 +18,23 @@ public class Agenda<T> {
 
     public void agregarContacto(T nombre, T telefono) {
         Contacto<T> contacto = new Contacto<>(nombre, telefono);
-        contactos.agregar((T) contacto);
+        contactos.agregar(contacto);
     }
 
-    public T buscarContacto(T nombre) {
-        return contactos.buscar(nombre);
+    public Contacto<T> buscarContacto(T nombre) {
+        Nodo<Contacto<T>> nodoActual = contactos.getPrimero();
+        while (nodoActual != null) {
+            Contacto<T> contacto = nodoActual.getDato();
+            if (contacto.getNombre().equals(nombre)) {
+                return contacto;
+            }
+            nodoActual = nodoActual.getSiguiente();
+        }
+        return null;
     }
 
     public void eliminarContacto(T nombre) {
-        contactos.eliminar(nombre);
+        contactos.eliminar(new Contacto<T>(nombre, null));
     }
+
 }

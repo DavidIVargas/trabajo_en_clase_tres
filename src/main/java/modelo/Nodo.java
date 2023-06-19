@@ -21,6 +21,7 @@ class Nodo<T> {
         return dato;
     }
 
+    
     public Nodo<T> getSiguiente() {
         return siguiente;
     }

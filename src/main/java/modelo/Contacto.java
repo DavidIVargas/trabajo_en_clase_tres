@@ -16,26 +16,14 @@ public class Contacto<T> {
         this.nombre = nombre;
         this.telefono = telefono;
     }
+    
 
     public T getNombre() {
         return nombre;
     }
 
-    public void setNombre(T nombre) {
-        this.nombre = nombre;
-    }
-
     public T getTelefono() {
         return telefono;
-    }
-
-    public void setTelefono(T telefono) {
-        this.telefono = telefono;
-    }
-
-    @Override
-    public String toString() {
-        return "Contacto{" + "nombre=" + nombre + ", telefono=" + telefono + '}';
     }
     
 }
